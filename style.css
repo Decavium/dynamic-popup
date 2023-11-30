@@ -1,0 +1,66 @@
+:root {
+    --padding: 1rem;
+    --borderRadius: 1rem;
+    --fontSize: 2rem;
+    --paddingTopAndBottom: 0.2rem;
+
+    --playIconSize: 5rem;
+
+    --skeletonBorderRadius: 0.4rem;
+    --skeletonOpacity: 0.4;
+
+    --dimColour: black;
+
+    /*  change this variable so the component
+        sits above all others */
+    --zIndex: 2;
+
+    --font: Tahoma;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.dim-screen {
+    background-color: var(--dimColour);
+    opacity: 0.3;
+
+    z-index: var(--zIndex);
+
+    position: fixed;
+    padding: 0;
+    margin: 0;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+.popup {
+    background-color: white;
+
+    z-index: calc(var(--zIndex) + 1);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: var(--borderRadius);
+    padding: var(--padding);
+}
+
+.popup-button {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.popup-text {
+    font-size: var(--fontSize);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
