@@ -54,10 +54,28 @@
     padding: var(--padding);
 }
 
+/* pseudo element adds space above button */
+.popup > :nth-last-child(2)::after {
+    
+    /* non-breaking space */
+    content: "\00a0";
+    white-space: pre;
+    display: flow-root;
+
+    /* height of element */
+    font-size: calc(var(--padding) / 2);
+}
+
 .popup-button {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+
+    min-width: 60%;
+    border-radius: var(--borderRadius);
+    border: none;
+
+    padding: calc(var(--padding) / 2);
 }
 
 .popup-text {
