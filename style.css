@@ -23,6 +23,19 @@
     padding: 0;
 }
 
+.popup-wrapper.hidden {
+    animation: fadeOutPopupWrapper 2s;
+}
+
+@keyframes fadeOutPopupWrapper {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 .dim-screen {
     background-color: var(--dimColour);
     opacity: 0.3;
@@ -38,6 +51,14 @@
 
     width: 100%;
     height: 100%;
+
+    animation: fadeInDimScreen 2s;
+}
+
+@keyframes fadeInDimScreen {
+    from {
+        opacity: 0;
+    }
 }
 
 .popup {
@@ -48,15 +69,35 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) ;
 
     border-radius: var(--borderRadius);
     padding: var(--padding);
+    min-width: 20rem;
+
+    visibility: hidden;
+}
+
+.popup:first-child {
+    animation: expandPopup 2s;
+}
+
+@keyframes expandPopup {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.active {
+    visibility: visible;
 }
 
 /* pseudo element adds space above button */
-.popup > :nth-last-child(2)::after {
-    
+.popup> :nth-last-child(2)::after {
+
     /* non-breaking space */
     content: "\00a0";
     white-space: pre;
