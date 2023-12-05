@@ -79,7 +79,7 @@
 }
 
 .popup:first-child {
-    animation: expandPopup 2s;
+    animation: expandPopup 0.7s;
 }
 
 @keyframes expandPopup {
@@ -98,6 +98,7 @@
 /* pseudo element adds space above button */
 .popup> :nth-last-child(2)::after {
 
+
     /* non-breaking space */
     content: "\00a0";
     white-space: pre;
@@ -113,10 +114,25 @@
     transform: translateX(-50%);
 
     min-width: 60%;
+
     border-radius: var(--borderRadius);
     border: none;
-
     padding: calc(var(--padding) / 2);
+
+    cursor: pointer;
+}
+
+.popup-button:focus, .popup-button:hover, .popup-button:active {
+    animation: buttonActive .5;
+}
+
+@keyframes buttonActive {
+    from {
+        background-color: white;
+    }
+    to {
+        background-color: black;
+    }
 }
 
 .popup-text {
