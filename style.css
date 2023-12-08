@@ -1,21 +1,27 @@
 :root {
     --padding: 1rem;
-    --borderRadius: 1rem;
-    --fontSize: 2rem;
     --paddingTopAndBottom: 0.2rem;
+    --borderRadius: 1rem;
+
+    --fontSize: 2rem;
+    --fontFamily: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     --playIconSize: 5rem;
 
     --skeletonBorderRadius: 0.4rem;
     --skeletonOpacity: 0.4;
 
+    --primaryColor: rgb(74, 78, 105);
+    --primaryColorTransparent: rgb(74, 78, 105, 0.2);
+    --primaryColorLight: rgb(143, 144, 151);
+    --primaryColorLightTransparent: rgb(143, 144, 151, 0.2);
+    --secondaryColor: rgb(201, 173, 167);
+    --secondaryColorLight: rgb(242, 233, 228);
     --dimColour: black;
 
     /*  change this variable so the component
         sits above all others */
     --zIndex: 2;
-
-    --font: Tahoma;
 }
 
 * {
@@ -31,6 +37,7 @@
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }
@@ -38,7 +45,7 @@
 
 .dim-screen {
     background-color: var(--dimColour);
-    opacity: 0.3;
+    opacity: 0.2;
 
     z-index: var(--zIndex);
 
@@ -62,14 +69,14 @@
 }
 
 .popup {
-    background-color: white;
+    background: linear-gradient(white, var(--secondaryColorLight));
 
     z-index: calc(var(--zIndex) + 1);
 
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) ;
+    transform: translate(-50%, -50%);
 
     border-radius: var(--borderRadius);
     padding: var(--padding);
@@ -86,6 +93,7 @@
     from {
         transform: translate(-50%, -50%) scale(0);
     }
+
     to {
         transform: translate(-50%, -50%) scale(1);
     }
@@ -105,7 +113,7 @@
     display: flow-root;
 
     /* height of element */
-    font-size: calc(var(--padding) / 2);
+    font-size: calc(var(--padding) / 0.75);
 }
 
 .popup-button {
@@ -119,23 +127,32 @@
     border: none;
     padding: calc(var(--padding) / 2);
 
+    background-color: var(--primaryColorTransparent);
+
     cursor: pointer;
 }
 
-.popup-button:focus, .popup-button:hover, .popup-button:active {
-    animation: buttonActive .5;
+.popup-button:hover {
+    animation: buttonActive .7s;
 }
 
 @keyframes buttonActive {
-    from {
-        background-color: white;
+    20% {
+        background-color: var(--primaryColorLightTransparent);
     }
-    to {
-        background-color: black;
+}
+
+.popup-button:active {
+    animation: buttonClicked 0.3s;
+}
+
+@keyframes buttonClicked {
+    50% {
+        transform: translate(-50%) scale(0.95);
     }
 }
 
 .popup-text {
     font-size: var(--fontSize);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--fontFamily);
 }
