@@ -103,6 +103,17 @@
     visibility: visible;
 }
 
+/* shrink and fade, then go upwards */
+@keyframes introducePopup {
+    
+}
+
+/* fade and shrunk to expand, content appears
+fade in and come down */
+@keyframes removePopup {
+    
+}
+
 /* pseudo element adds space above button */
 .popup> :nth-last-child(2)::after {
 

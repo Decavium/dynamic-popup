@@ -7,7 +7,7 @@ const popupArray: NodeListOf<Element> = document.querySelectorAll(".popup");
 // const clone = node.cloneNode(true);
 
 // Button on click to cycle through windows, last one deletes elements
-function onButtonPress(button: Element, lastElement: boolean = false) {
+function onButtonPress(button: Element, , lastElement: boolean = false) {
     // remove the popups if the user is at the last element
     lastElement && removePopup();
 
