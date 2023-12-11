@@ -1,4 +1,5 @@
-const popupArray: NodeListOf<Element> = document.querySelectorAll(".popup"); 
+const popupArray: HTMLElement[] = Array.from(document.getElementsByClassName('popup') as HTMLCollectionOf<HTMLElement>);
+const popupWrapper: HTMLElement = document.querySelector(".popup-wrapper") as HTMLElement;
 
 // Skeleton if info not found
 
@@ -6,27 +7,29 @@ const popupArray: NodeListOf<Element> = document.querySelectorAll(".popup");
 // const node = document.getElementById("myList2").lastChild;
 // const clone = node.cloneNode(true);
 
-// Button on click to cycle through windows, last one deletes elements
-function onButtonPress(button: Element, , lastElement: boolean = false) {
-    // remove the popups if the user is at the last element
-    lastElement && removePopup();
+for (let i: number = 0; i < popupArray.length - 1; i++) {
+    popupArray[i].querySelectorAll(".popup-button").forEach((button) => button.addEventListener("pointerdown", () => { showNextPopup(popupArray[i], popupArray[i + 1]) }))
+}
+popupArray[popupArray.length - 1].querySelectorAll(".popup-button").forEach((button) => button.addEventListener("pointerdown", () => { removePopupWrapper(popupWrapper) }));
 
-    removePopup();
+function showNextPopup(element: Element, nextElement: Element) {
+    element.classList.remove("active");
+    nextElement.classList.add("active");
+
+    console.log("Element removed.");
 }
 
-function removePopup() {
+function removePopupWrapper(wrapper: HTMLElement) {
 
+    console.log("Wrapper removed.");
+
+    // wrapper.classList.add("hidden");
+    // wrapper.style.setProperty('animation', 'fadeOutButton 0.6s');
+    // wrapper.addEventListener("animationend",
+    //     () => {
+    //         // set to 0 as it reverts to its original opactiy before the animation happened
+    //         wrapper.style.opacity = '0';
+    //     }
+    // );
 }
 
-function removePopupList() {
-    root.classList.add("hidden");
-    root.style.setProperty('animation', 'fadeOutButton 0.6s');
-    root.addEventListener("animationend",
-        () => {
-            // set to 0 as it reverts to its original opactiy before the animation happened
-            root.style.opacity = 0;
-        }
-    );
-}
-
-export {}
