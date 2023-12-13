@@ -6,6 +6,7 @@ var _loop_1 = function (i) {
 for (var i = 0; i < popupArray.length - 1; i++) {
     _loop_1(i);
 }
+// the last button calls the removePopupWrapper() function
 popupArray[popupArray.length - 1].querySelectorAll(".popup-button").forEach(function (button) { return button.addEventListener("pointerdown", function () { removePopupWrapper(popupWrapper); }); });
 function showNextPopup(element, nextElement) {
     element.classList.remove("active");
@@ -13,5 +14,6 @@ function showNextPopup(element, nextElement) {
 }
 function removePopupWrapper(wrapper) {
     wrapper.classList.add("hidden");
-    setTimeout(function () { wrapper.remove(); }, 1000);
+    // removes the wrapper once the .3s transition finishes
+    // setTimeout(() => { wrapper.remove() }, 1000);
 }
