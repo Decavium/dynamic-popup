@@ -15,5 +15,5 @@ function showNextPopup(element, nextElement) {
 function removePopupWrapper(wrapper) {
     wrapper.classList.add("hidden");
     // removes the wrapper once the .3s transition finishes
-    // setTimeout(() => { wrapper.remove() }, 1000);
+    setTimeout(function () { wrapper.remove(); }, 1000);
 }
