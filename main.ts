@@ -1,6 +1,8 @@
 const popupArray: HTMLElement[] = Array.from(document.getElementsByClassName('popup') as HTMLCollectionOf<HTMLElement>);
 const popupWrapper: HTMLElement = document.querySelector(".popup-wrapper") as HTMLElement;
 
+popupArray[0].classList.add("active");
+
 for (let i: number = 0; i < popupArray.length - 1; i++) {
     popupArray[i].querySelectorAll(".popup-button").forEach((button) => button.addEventListener("pointerdown", () => { showNextPopup(popupArray[i], popupArray[i + 1]) }))
 }
