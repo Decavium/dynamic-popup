@@ -1,5 +1,5 @@
 const popupArray: HTMLElement[] = Array.from(document.getElementsByClassName('popup') as HTMLCollectionOf<HTMLElement>);
-const popupWrapper: HTMLElement = document.querySelector(".popup-wrapper") as HTMLElement;
+const popupWrapper: HTMLElement = document.querySelector(".popup-list-wrapper") as HTMLElement;
 
 popupArray[0].classList.add("active");
 

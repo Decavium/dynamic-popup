@@ -1,5 +1,5 @@
 var popupArray = Array.from(document.getElementsByClassName('popup'));
-var popupWrapper = document.querySelector(".popup-wrapper");
+var popupWrapper = document.querySelector(".popup-list-wrapper");
 popupArray[0].classList.add("active");
 var _loop_1 = function (i) {
     popupArray[i].querySelectorAll(".popup-button").forEach(function (button) { return button.addEventListener("pointerdown", function () { showNextPopup(popupArray[i], popupArray[i + 1]); }); });
