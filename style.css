@@ -1,14 +1,14 @@
 :root {
-    --padding: 2cqi;
-    --border-width: .5cqi;
-    --borderRadius: 4cqi;
+    --padding: 1.4rem;
+    --border-width: .17rem;
+    --borderRadius: 3cqi;
 
-    --fontSize: 2cqi;
+    --fontSize: 1rem;
     --fontFamily: system-ui, sans-serif;
 
     /*  change this variable so the component
         sits above all others */
-    --zIndex: 2;
+    --zIndex: 99;
 
     /* CSS HEX */
     --silver: #C2BBB9ff;
@@ -39,9 +39,21 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: var(--backgroundColor);
-    background-image: url('https://images.pexels.com/photos/250591/pexels-photo-250591.jpeg');
+    background-image: url('https://images.pexels.com/photos/1440476/pexels-photo-1440476.jpeg');
+    /* background-image: url('https://images.pexels.com/photos/3299265/pexels-photo-3299265.jpeg'); */
+    
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
 
 .popup-list-wrapper.hidden {
     .dim-screen {
@@ -91,9 +103,6 @@ body {
     border: var(--border-width) solid var(--space-cadet);
     background: var(--gradient-popup);
     padding: var(--padding);
-    
-    aspect-ratio: 7/8;
-    width: min-content;
 
     z-index: calc(var(--zIndex) + 1);
 
@@ -173,7 +182,7 @@ body {
     display: flow-root;
 
     /* height of element */
-    font-size: 3cqi;
+    font-size: 1.7rem;
 }
 
 .popup-button {
@@ -189,7 +198,7 @@ body {
     background: var(--davys-gray);
 
     transition: 0.3s;
-    box-shadow: 0 .5cqi 0 0 var(--slate-gray);
+    box-shadow: 0 .3rem 0 0 var(--slate-gray);
     outline-color: var(--slate-gray);
 
     cursor: pointer;
@@ -199,23 +208,24 @@ body {
 .popup-button:active,
 .popup-button:focus-visible {
     box-shadow: 0 0;
-    transform: translate(-50%, 0.2cqi);
+    transform: translate(-50%, 0.2rem);
 }
 
 .popup-text {
     color: var(--space-cadet);
     font-family: var(--fontFamily);
     font-size: var(--fontSize);
-    
+    overflow-wrap: break-word;
+    hyphens: manual;
 }
 
 p.popup-text {
-    line-height: 3cqi;
+    line-height: 1.1rem;
     padding-inline: calc(var(--padding) / 5);
 }
 
 h1.popup-text {
-    line-height: 2cqi;
+    line-height: .9rem;
     font-size: calc(var(--fontSize) * 1.2);
     font-weight: 800;
     padding-bottom: var(--padding);
